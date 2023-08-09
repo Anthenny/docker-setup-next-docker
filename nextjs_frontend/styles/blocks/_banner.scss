@@ -1,0 +1,75 @@
+.cBanner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  @media (min-width: 1000px) {
+    position: static;
+  }
+  .left__col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 100;
+    padding: 120px 16px;
+    background: transparent;
+    color: #fff;
+
+    @media (min-width: 815px) {
+      color: #000;
+      background: #fff;
+    }
+    h1 {
+      font-size: 18px;
+    }
+    p {
+      max-width: 400px;
+      font-weight: 400;
+    }
+  }
+
+  .cTitle {
+    border-left: 4px solid $green;
+    & p {
+      padding-left: 10px;
+      font-size: 20px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+
+  .cList {
+    & p {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    & li {
+      font-size: 14px;
+      margin: 0 30px;
+      font-weight: 400;
+
+      &:first-of-type {
+        padding-top: 16px;
+      }
+      &:last-of-type {
+        padding-bottom: 16px;
+      }
+    }
+  }
+}
+
+.img__col {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  border: none;
+  overflow: hidden;
+  .cImg {
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,81 @@
+$green: #499d51;
+$green5: rgba(73, 157, 81, 0.5);
+$gray: #928d8d;
+$black: #000;
+$white: #fff;
+$gray: #ededed;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Istok+Web:ital,wght@1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+h2,
+h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+p,
+li,
+span {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+.fullwidth {
+  width: 100vw;
+  position: relative;
+  margin: 0 auto;
+}
+
+.noFullwidth {
+  width: 100vw;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 2000px;
+}
+
+.fullwidthColor {
+  width: 100vw;
+  background-color: $green;
+}
+
+.fullNavColor {
+  width: 100vw;
+  background-color: $green !important;
+  // @media (min-width: '1070px') {
+  //   background-color: $white !important;
+  //   position: static;
+  // }
+}
+
+.container {
+  max-width: 100%;
+  padding: 0 16px;
+  max-width: 1122px;
+  margin: 0 auto;
+}
+
+.darkBg {
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,22 @@
+.fwSchema {
+  padding: 70px 16px;
+}
+
+.cSchemas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+  @media (min-width: 950px) {
+    flex-direction: row;
+  }
+  &__header {
+    font-size: 26px;
+    color: #fff;
+    padding-bottom: 50px;
+    text-transform: uppercase;
+  }
+}
