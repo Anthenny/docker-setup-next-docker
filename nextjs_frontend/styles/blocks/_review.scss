@@ -1,0 +1,16 @@
+.fwReview {
+  padding: 80px 16px;
+}
+
+.cReview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding-top: 70px;
+  & p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+  }
+}

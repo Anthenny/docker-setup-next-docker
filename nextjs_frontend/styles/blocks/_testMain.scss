@@ -1,0 +1,68 @@
+.containerTest {
+  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
+}
+
+.fwMain {
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fw1 {
+  // border: 1px solid #ff0000;
+  min-height: 100vh;
+  height: 100%;
+  max-width: 1124px;
+  width: 100%;
+  padding: 80px 16px;
+
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.fw2 {
+  // border: 1px solid #000;
+
+  max-width: 2000px;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  box-sizing: border-box;
+
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+
+  overflow: hidden;
+  z-index: 200;
+
+  .img__col1 {
+    //   border: 1px solid #62ff00;
+
+    position: absolute;
+    width: 800px;
+    height: 100%;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    right: 0;
+    transform: scale(1.5);
+    overflow: hidden;
+    & img {
+      object-fit: cover;
+      object-position: top;
+      z-index: 999;
+    }
+  }
+}
+
+.left__col__test {
+  max-width: 430px;
+  width: 100%;
+}
