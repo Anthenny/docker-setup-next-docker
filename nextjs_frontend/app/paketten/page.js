@@ -10,7 +10,7 @@ import paketSectionImg from '../../public/img/paketSectionImg.jpg';
 import vinkje1 from '../../public/icon/vinkje1.png';
 import vinkje2 from '../../public/icon/vinkje2.png';
 
-const pakketten = () => {
+const page = () => {
   const [isYearly, setIsYearly] = useState(false);
 
   const handleToggleSubscription = () => {
@@ -178,4 +178,4 @@ const pakketten = () => {
   );
 };
 
-export default pakketten;
+export default page;
