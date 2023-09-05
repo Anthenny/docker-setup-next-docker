@@ -14,6 +14,9 @@ const page = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [selectedOption, setSelectedOption] = useState(null);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [selectedOptionsCounts, setSelectedOptionsCounts] = useState(
+    Array(quizData.length).fill(0)
+  );
 
   useEffect(() => {
     // Set the selectedOption state when navigating between questions
@@ -21,47 +24,36 @@ const page = () => {
   }, [currentQuestion, userAnswers]);
 
   const handleAnswer = (selectedOption) => {
-    // Controleer of de geselecteerde optie al is geselecteerd
-    const isAlreadySelected =
-      userAnswers[currentQuestion] && userAnswers[currentQuestion][selectedOption];
+    const isSelected = userAnswers[currentQuestion] && userAnswers[currentQuestion][selectedOption];
 
-    // Controleer of er al 3 opties zijn geselecteerd voor deze vraag
-    const selectedOptionsCount = Object.values(userAnswers[currentQuestion] || {}).filter(
-      (option) => option === true
-    ).length;
+    // Check if the option is selected or deselected and update the count accordingly
+    const updatedSelectedOptionsCounts = [...selectedOptionsCounts];
+    updatedSelectedOptionsCounts[currentQuestion] += isSelected ? -1 : 1;
 
-    if (selectedOptionsCount < 3 || isAlreadySelected) {
-      // Voeg de geselecteerde optie toe of verwijder deze als deze al is geselecteerd
-      setUserAnswers({
-        ...userAnswers,
-        [currentQuestion]: {
-          ...userAnswers[currentQuestion],
-          [selectedOption]: !isAlreadySelected,
-        },
-      });
-    } else {
-      // Toon een foutmelding als er al 3 opties zijn geselecteerd
-      alert('Je kunt maximaal 3 opties selecteren voor deze vraag.');
-    }
+    setUserAnswers({
+      ...userAnswers,
+      [currentQuestion]: {
+        ...userAnswers[currentQuestion],
+        [selectedOption]: !isSelected,
+      },
+    });
+
+    setSelectedOptionsCounts(updatedSelectedOptionsCounts);
   };
 
   const nextQuestion = () => {
-    // Controleer of minimaal 3 antwoorden zijn geselecteerd voor de huidige vraag
-    const selectedOptionsCount = Object.values(userAnswers[currentQuestion] || {}).filter(
-      (option) => option === true
-    ).length;
+    const selectedOptionsCount = selectedOptionsCounts[currentQuestion];
 
     if (selectedOptionsCount >= 3) {
-      // Ga naar de volgende vraag als minimaal 3 antwoorden zijn geselecteerd
       setUserAnswers({ ...userAnswers, [currentQuestion]: selectedOption });
 
       if (currentQuestion < quizData.length - 1) {
         setCurrentQuestion(currentQuestion + 1);
+        setSelectedOption(null);
       } else {
         setQuizCompleted(true);
       }
     } else {
-      // Toon een foutmelding als er niet minimaal 3 antwoorden zijn geselecteerd
       alert('Kies minimaal 3 antwoorden voordat je doorgaat naar de volgende vraag.');
     }
   };
@@ -72,8 +64,8 @@ const page = () => {
     }
   };
 
-  const answeredQuestionsCount = Object.keys(userAnswers).length;
-  const progressBarWidth = (answeredQuestionsCount / quizData.length) * 100;
+  const answeredQuestionsCount = selectedOptionsCounts.filter((count) => count >= 3).length;
+  const progressBarWidth = Math.min((answeredQuestionsCount / quizData.length) * 100, 100);
 
   return (
     <div className="fwQuestion container">
@@ -84,13 +76,24 @@ const page = () => {
             {quizData.map((question, index) => (
               <div key={index}>
                 <p>{`${index + 1}. ${question.question}`}</p>
-                <p>{userAnswers[index] || 'geen antwoord'}</p>
+                <p>
+                  {Object.entries(userAnswers[index] || {}).map(([key, value], i) => (
+                    <span key={i}>
+                      {value ? (
+                        <span>{key}</span> // Render the selected options
+                      ) : (
+                        <span>No answer</span> // Render something else if no answer is selected
+                      )}
+                      {i !== Object.entries(userAnswers[index]).length - 1 && ', '}
+                    </span>
+                  ))}
+                </p>
               </div>
             ))}
           </div>
           <div className="button" style={{ width: 200 }}>
             <Link href={'/winkelmand'}>
-              <p>Besteling afronden</p>
+              <p>Bestelling afronden</p>
             </Link>
           </div>
         </div>
@@ -102,13 +105,13 @@ const page = () => {
             <div className="top__col">
               {quizData[currentQuestion].options.map((option, index) => (
                 <div
-                  className={`col ${selectedOption === option ? 'col__active' : ''}`}
+                  className={`col ${userAnswers[currentQuestion]?.[option] ? 'col__active' : ''}`}
                   key={index}
                   onClick={() => handleAnswer(option)}
                 >
                   <span>
                     <Image
-                      src={selectedOption === option ? checkboxTrue : checkbox}
+                      src={userAnswers[currentQuestion]?.[option] ? checkboxTrue : checkbox}
                       fill
                       alt="checkbox icon"
                     />
