@@ -47,33 +47,39 @@ const page = () => {
                 <div></div>
               </div>
             </div>
+            <div className={`mobile__menu-test ${menuVisible ? "__active" : ""}`}>
+                <ul>
+                    <li className="list__layer">
+                        <div className="first__layer">
+                            <Link href={'/'} class="">
+                                <span>HOME</span>
+                            </Link>
+                        </div>
+                    </li>
+                    <li className="list__layer">
+                        <div className="first__layer">
+                            <Link href={'/'} class="">
+                                <span>OVER</span>
+                            </Link>
+                        </div>
+                    </li>
+                    <li className="list__layer">
+                        <div className="first__layer">
+                            <Link href={'/'} class="">
+                                <span>PRICING</span>
+                            </Link>
+                        </div>
+                    </li>
+                    <li className="list__layer">
+                        <div className="first__layer">
+                            <Link href={'/'} class="">
+                                <span>CONTACT</span>
+                            </Link>
+                        </div>
+                    </li>
+                </ul>
           </div>
         </div>
-      </div>
-      <div className={`mobile__menu-test ${menuVisible ? '__active' : ''}`}>
-        <ul>
-          <li className="list__layer">
-            <div className="first__layer">
-              <Link href={'/'} class="">
-                <span>Test</span>
-              </Link>
-            </div>
-          </li>
-          <li className="list__layer">
-            <div className="first__layer">
-              <Link href={'/'} class="">
-                <span>Test</span>
-              </Link>
-            </div>
-          </li>
-          <li className="list__layer">
-            <div className="first__layer">
-              <Link href={'/'} class="">
-                <span>Test</span>
-              </Link>
-            </div>
-          </li>
-        </ul>
       </div>
     </>
   );
