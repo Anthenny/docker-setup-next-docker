@@ -7,30 +7,54 @@ import quizData from '../../data/quizData';
 import checkbox from '@../../../public/icon/checkbox.png';
 import checkboxTrue from '@../../../public/icon/checkboxTrue.png';
 import arrow3 from '@../../../public/icon/arrow3.png';
+import Link from 'next/link';
 
 const page = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState({});
   const [selectedOption, setSelectedOption] = useState(null);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [selectedOptionsCounts, setSelectedOptionsCounts] = useState(
+    Array(quizData.length).fill(0)
+  );
 
   useEffect(() => {
     // Set the selectedOption state when navigating between questions
-    setSelectedOption(userAnswers[currentQuestion] || null);
+    setSelectedOption(userAnswers[currentQuestion] || {});
   }, [currentQuestion, userAnswers]);
 
   const handleAnswer = (selectedOption) => {
-    setUserAnswers({ ...userAnswers, [currentQuestion]: selectedOption });
-    setSelectedOption(selectedOption);
+    const isSelected = userAnswers[currentQuestion] && userAnswers[currentQuestion][selectedOption];
+
+    // Check if the option is selected or deselected and update the count accordingly
+    const updatedSelectedOptionsCounts = [...selectedOptionsCounts];
+    updatedSelectedOptionsCounts[currentQuestion] += isSelected ? -1 : 1;
+
+    setUserAnswers({
+      ...userAnswers,
+      [currentQuestion]: {
+        ...userAnswers[currentQuestion],
+        [selectedOption]: !isSelected,
+      },
+    });
+
+    setSelectedOptionsCounts(updatedSelectedOptionsCounts);
   };
 
   const nextQuestion = () => {
-    setUserAnswers({ ...userAnswers, [currentQuestion]: selectedOption });
+    const selectedOptionsCount = selectedOptionsCounts[currentQuestion];
 
-    if (currentQuestion < quizData.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+    if (selectedOptionsCount >= 3) {
+      setUserAnswers({ ...userAnswers, [currentQuestion]: selectedOption });
+
+      if (currentQuestion < quizData.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+        setSelectedOption(null);
+      } else {
+        setQuizCompleted(true);
+      }
     } else {
-      setQuizCompleted(true);
+      alert('Kies minimaal 3 antwoorden voordat je doorgaat naar de volgende vraag.');
     }
   };
 
@@ -40,8 +64,8 @@ const page = () => {
     }
   };
 
-  const answeredQuestionsCount = Object.keys(userAnswers).length;
-  const progressBarWidth = (answeredQuestionsCount / quizData.length) * 100;
+  const answeredQuestionsCount = selectedOptionsCounts.filter((count) => count >= 3).length;
+  const progressBarWidth = Math.min((answeredQuestionsCount / quizData.length) * 100, 100);
 
   return (
     <div className="fwQuestion container">
@@ -52,12 +76,25 @@ const page = () => {
             {quizData.map((question, index) => (
               <div key={index}>
                 <p>{`${index + 1}. ${question.question}`}</p>
-                <p>{userAnswers[index] || 'geen antwoord'}</p>
+                <p>
+                  {Object.entries(userAnswers[index] || {}).map(([key, value], i) => (
+                    <span key={i}>
+                      {value ? (
+                        <span>{key}</span> // Render the selected options
+                      ) : (
+                        <span>No answer</span> // Render something else if no answer is selected
+                      )}
+                      {i !== Object.entries(userAnswers[index]).length - 1 && ', '}
+                    </span>
+                  ))}
+                </p>
               </div>
             ))}
           </div>
           <div className="button" style={{ width: 200 }}>
-            <p>Besteling afronden</p>
+            <Link href={'/winkelmand'}>
+              <p>Bestelling afronden</p>
+            </Link>
           </div>
         </div>
       ) : (
@@ -68,13 +105,13 @@ const page = () => {
             <div className="top__col">
               {quizData[currentQuestion].options.map((option, index) => (
                 <div
-                  className={`col ${selectedOption === option ? 'active' : ''}`}
+                  className={`col ${userAnswers[currentQuestion]?.[option] ? 'col__active' : ''}`}
                   key={index}
                   onClick={() => handleAnswer(option)}
                 >
                   <span>
                     <Image
-                      src={selectedOption === option ? checkboxTrue : checkbox}
+                      src={userAnswers[currentQuestion]?.[option] ? checkboxTrue : checkbox}
                       fill
                       alt="checkbox icon"
                     />

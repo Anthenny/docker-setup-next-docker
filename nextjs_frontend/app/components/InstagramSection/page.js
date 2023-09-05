@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import instagramIcon from '@/../../public/icon/instagram.png';
 
 const page = () => {
   const slides = [
@@ -17,6 +18,10 @@ const page = () => {
             return (
               <div className="slid" key={index} style={{ height: 267 }}>
                 <Image src={slid.imageUrl} fill alt="instagram section image" sizes="100vw" />
+                <span>
+                  <Image src={instagramIcon} width={40} height={40} alt="icon instagram" />
+                </span>
+                <div className="darkBg" />
               </div>
             );
           })}

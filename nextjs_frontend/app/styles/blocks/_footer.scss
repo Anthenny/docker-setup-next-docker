@@ -63,9 +63,9 @@
       padding: 0 8px;
       list-style: none;
       cursor: pointer;
+      transition: text-decoration 3s ease-in;
       &:hover {
-        transition: all 0.3s ease-in-out;
-        transform: scale(1.1);
+        text-decoration: underline;
       }
     }
   }
