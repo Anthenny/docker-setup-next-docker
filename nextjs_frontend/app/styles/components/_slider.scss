@@ -82,7 +82,31 @@
 .slid {
   width: 100%;
   position: relative;
+  cursor: pointer;
   img {
     object-fit: cover;
+  }
+  & > span {
+    display: none;
+    z-index: 999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    img {
+      object-fit: contain;
+    }
+  }
+
+  & > div {
+    display: none;
+  }
+
+  &:hover {
+    & > div,
+    & > span {
+      display: block;
+      transition: all 0.3s ease-in-out;
+    }
   }
 }
