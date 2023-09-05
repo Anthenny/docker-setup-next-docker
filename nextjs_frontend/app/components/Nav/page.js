@@ -52,21 +52,28 @@ const page = () => {
                     <li className="list__layer">
                         <div className="first__layer">
                             <Link href={'/'} class="">
-                                <span>Test</span>
+                                <span>HOME</span>
                             </Link>
                         </div>
                     </li>
                     <li className="list__layer">
                         <div className="first__layer">
                             <Link href={'/'} class="">
-                                <span>Test</span>
+                                <span>OVER</span>
                             </Link>
                         </div>
                     </li>
                     <li className="list__layer">
                         <div className="first__layer">
                             <Link href={'/'} class="">
-                                <span>Test</span>
+                                <span>PRICING</span>
+                            </Link>
+                        </div>
+                    </li>
+                    <li className="list__layer">
+                        <div className="first__layer">
+                            <Link href={'/'} class="">
+                                <span>CONTACT</span>
                             </Link>
                         </div>
                     </li>
