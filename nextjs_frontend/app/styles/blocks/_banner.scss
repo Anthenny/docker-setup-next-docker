@@ -8,12 +8,13 @@
   @media (min-width: 1000px) {
     position: static;
   }
+
   .left__col {
     display: flex;
     flex-direction: column;
     gap: 16px;
     z-index: 100;
-    padding: 120px 16px;
+    padding: 160px 16px;
     background: transparent;
     color: #fff;
 
@@ -21,9 +22,11 @@
       color: #000;
       background: #fff;
     }
+
     h1 {
-      font-size: 18px;
+      font-size: 22px;
     }
+
     p {
       max-width: 400px;
       font-weight: 400;
@@ -32,9 +35,11 @@
 
   .cTitle {
     border-left: 4px solid $green;
+    font-family: 'Poppins', 'sans-serif' !important;
+
     & p {
       padding-left: 10px;
-      font-size: 20px;
+      font-size: 22px;
       text-transform: uppercase;
       font-weight: 700;
     }
@@ -42,18 +47,20 @@
 
   .cList {
     & p {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 700;
       text-transform: uppercase;
     }
+
     & li {
-      font-size: 14px;
+      font-size: 16px;
       margin: 0 30px;
       font-weight: 400;
 
       &:first-of-type {
         padding-top: 16px;
       }
+
       &:last-of-type {
         padding-bottom: 16px;
       }
@@ -67,6 +74,7 @@
   top: 0px;
   border: none;
   overflow: hidden;
+
   .cImg {
     object-fit: cover;
     object-position: center;
