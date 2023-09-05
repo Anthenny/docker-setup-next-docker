@@ -7,6 +7,7 @@ import quizData from '../../data/quizData';
 import checkbox from '@../../../public/icon/checkbox.png';
 import checkboxTrue from '@../../../public/icon/checkboxTrue.png';
 import arrow3 from '@../../../public/icon/arrow3.png';
+import Link from 'next/link';
 
 const page = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -16,21 +17,52 @@ const page = () => {
 
   useEffect(() => {
     // Set the selectedOption state when navigating between questions
-    setSelectedOption(userAnswers[currentQuestion] || null);
+    setSelectedOption(userAnswers[currentQuestion] || {});
   }, [currentQuestion, userAnswers]);
 
   const handleAnswer = (selectedOption) => {
-    setUserAnswers({ ...userAnswers, [currentQuestion]: selectedOption });
-    setSelectedOption(selectedOption);
+    // Controleer of de geselecteerde optie al is geselecteerd
+    const isAlreadySelected =
+      userAnswers[currentQuestion] && userAnswers[currentQuestion][selectedOption];
+
+    // Controleer of er al 3 opties zijn geselecteerd voor deze vraag
+    const selectedOptionsCount = Object.values(userAnswers[currentQuestion] || {}).filter(
+      (option) => option === true
+    ).length;
+
+    if (selectedOptionsCount < 3 || isAlreadySelected) {
+      // Voeg de geselecteerde optie toe of verwijder deze als deze al is geselecteerd
+      setUserAnswers({
+        ...userAnswers,
+        [currentQuestion]: {
+          ...userAnswers[currentQuestion],
+          [selectedOption]: !isAlreadySelected,
+        },
+      });
+    } else {
+      // Toon een foutmelding als er al 3 opties zijn geselecteerd
+      alert('Je kunt maximaal 3 opties selecteren voor deze vraag.');
+    }
   };
 
   const nextQuestion = () => {
-    setUserAnswers({ ...userAnswers, [currentQuestion]: selectedOption });
+    // Controleer of minimaal 3 antwoorden zijn geselecteerd voor de huidige vraag
+    const selectedOptionsCount = Object.values(userAnswers[currentQuestion] || {}).filter(
+      (option) => option === true
+    ).length;
 
-    if (currentQuestion < quizData.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+    if (selectedOptionsCount >= 3) {
+      // Ga naar de volgende vraag als minimaal 3 antwoorden zijn geselecteerd
+      setUserAnswers({ ...userAnswers, [currentQuestion]: selectedOption });
+
+      if (currentQuestion < quizData.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+      } else {
+        setQuizCompleted(true);
+      }
     } else {
-      setQuizCompleted(true);
+      // Toon een foutmelding als er niet minimaal 3 antwoorden zijn geselecteerd
+      alert('Kies minimaal 3 antwoorden voordat je doorgaat naar de volgende vraag.');
     }
   };
 
@@ -57,7 +89,9 @@ const page = () => {
             ))}
           </div>
           <div className="button" style={{ width: 200 }}>
-            <p>Besteling afronden</p>
+            <Link href={'/winkelmand'}>
+              <p>Besteling afronden</p>
+            </Link>
           </div>
         </div>
       ) : (
@@ -68,7 +102,7 @@ const page = () => {
             <div className="top__col">
               {quizData[currentQuestion].options.map((option, index) => (
                 <div
-                  className={`col ${selectedOption === option ? 'active' : ''}`}
+                  className={`col ${selectedOption === option ? 'col__active' : ''}`}
                   key={index}
                   onClick={() => handleAnswer(option)}
                 >

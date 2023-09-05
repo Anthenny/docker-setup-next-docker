@@ -1,14 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import ReviewsSection from '../components/ReviewsSection/page';
 import InstagramSection from '../components/InstagramSection/page';
 import Image from 'next/image';
+import PricingCard from '../components/paketten/pricingCard/page';
 
 import paketSectionImg from '../../public/img/paketSectionImg.jpg';
-import vinkje1 from '../../public/icon/vinkje1.png';
-import vinkje2 from '../../public/icon/vinkje2.png';
 
 const page = () => {
   const [isYearly, setIsYearly] = useState(false);
@@ -16,6 +15,58 @@ const page = () => {
   const handleToggleSubscription = () => {
     setIsYearly(!isYearly);
   };
+
+  const packagedata = [
+    {
+      key: 1,
+      packageNaam: 'Voedingsschema',
+      packageTarget: 'Afvallen',
+      packageYearlyPrice: 99.99,
+      packageMonthlyPrice: 49.99,
+      packageList: [
+        'Weekelijks contact',
+        'Weekelijks contact',
+        'Weekelijks contact',
+        'Weekelijks contact',
+        'Weekelijks contact',
+      ],
+      packageAmout: 1,
+      packageYearly: isYearly,
+    },
+    {
+      key: 2,
+      packageNaam: 'Voedingsschema',
+      packageTarget: 'Afvallen',
+      packageYearlyPrice: 99.99,
+      packageMonthlyPrice: 49.99,
+      packageList: [
+        'Weekelijks contact',
+        'Weekelijks contact',
+        'Weekelijks contact',
+        'Weekelijks contact',
+        'Weekelijks contact',
+      ],
+      packageAmout: 1,
+      packageYearly: isYearly,
+    },
+    {
+      key: 3,
+      packageNaam: 'Voedingsschema',
+      packageTarget: 'Afvallen',
+      packageYearlyPrice: 99.99,
+      packageMonthlyPrice: 49.99,
+      packageList: [
+        'Weekelijks contact',
+        'Weekelijks contact',
+        'Weekelijks contact',
+        'Weekelijks contact',
+        'Weekelijks contact',
+      ],
+      packageAmout: 1,
+      packageYearly: isYearly,
+    },
+  ];
+
   return (
     <div>
       <div className="fullwidth fwpackagesSection">
@@ -44,130 +95,9 @@ const page = () => {
           </div>
 
           <div className="bottom__col">
-            <div className="pricingCard">
-              <h3>Voedingsschema</h3>
-              <p>
-                <span>{isYearly ? '$99.99' : '$49.99'}</span> / per maand
-              </p>
-              <ul>
-                <li>
-                  <span>
-                    <Image src={vinkje2} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-                <li>
-                  <span>
-                    <Image src={vinkje2} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-                <li>
-                  <span>
-                    <Image src={vinkje2} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-                <li>
-                  <span>
-                    <Image src={vinkje2} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-                <li>
-                  <span>
-                    <Image src={vinkje2} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-              </ul>
-              <div className="priceButton">
-                <p>In winkelmand</p>
-              </div>
-            </div>
-
-            <div className="pricingCard active">
-              <h3>Voedingsschema</h3>
-              <p>
-                <span>{isYearly ? '$99.99' : '$49.99'}</span> / per maand
-              </p>
-              <ul>
-                <li>
-                  <span>
-                    <Image src={vinkje1} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-                <li>
-                  <span>
-                    <Image src={vinkje1} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-                <li>
-                  <span>
-                    <Image src={vinkje1} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-                <li>
-                  <span>
-                    <Image src={vinkje1} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-                <li>
-                  <span>
-                    <Image src={vinkje1} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-              </ul>
-              <div className="priceButton priceButton__active">
-                <p>In winkelmand</p>
-              </div>
-            </div>
-            <div className="pricingCard">
-              <h3>Voedingsschema</h3>
-              <p>
-                <span>{isYearly ? '$99.99' : '$49.99'}</span> / per maand
-              </p>
-              <ul>
-                <li>
-                  <span>
-                    <Image src={vinkje2} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-                <li>
-                  <span>
-                    <Image src={vinkje2} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-                <li>
-                  <span>
-                    <Image src={vinkje2} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-                <li>
-                  <span>
-                    <Image src={vinkje2} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-                <li>
-                  <span>
-                    <Image src={vinkje2} width={20} height={20} alt="vinkje icon" />
-                  </span>
-                  Weekelijks contact
-                </li>
-              </ul>
-              <div className="priceButton">
-                <p>In winkelmand</p>
-              </div>
-            </div>
+            <PricingCard active={false} packagedata={packagedata[0]} />
+            <PricingCard active={true} packagedata={packagedata[1]} />
+            <PricingCard active={false} packagedata={packagedata[2]} />
           </div>
         </div>
       </div>
