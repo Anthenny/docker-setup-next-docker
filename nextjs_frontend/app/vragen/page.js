@@ -67,6 +67,21 @@ const page = () => {
   const answeredQuestionsCount = selectedOptionsCounts.filter((count) => count >= 3).length;
   const progressBarWidth = Math.min((answeredQuestionsCount / quizData.length) * 100, 100);
 
+  const handelSaveAnswers = () => {
+    console.log(combineObjects(userAnswers, quizData));
+  };
+
+  // zorg er voor dat ik array [{answer: [answer, answer], question: "wat de vraag was"}]
+  const combineObjects = (obj1, obj2) => {
+    return obj2.map((item, index) => {
+      const answers = Object.keys(obj1[index]);
+      return {
+        question: item.question,
+        answer: answers.map((key) => key),
+      };
+    });
+  };
+
   return (
     <div className="fwQuestion container">
       {quizCompleted ? (
@@ -93,7 +108,7 @@ const page = () => {
           </div>
           <div className="button" style={{ width: 200 }}>
             <Link href={'/winkelmand'}>
-              <p>Bestelling afronden</p>
+              <p onClick={handelSaveAnswers}>Bestelling afronden</p>
             </Link>
           </div>
         </div>
