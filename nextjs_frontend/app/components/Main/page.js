@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Image from 'next/image';
-import Nav from '../../components/Nav/page';
+import Nav from '../Nav/page';
 import textImage from '@/../../public/img/mainImag.jpg';
 
 const page = () => {
