@@ -54,28 +54,28 @@ const page = () => {
         <ul>
           <li className="list__layer">
             <div className="first__layer">
-              <Link href={'/'} class="">
+              <Link href={'/'} className="">
                 <span>HOME</span>
               </Link>
             </div>
           </li>
           <li className="list__layer">
             <div className="first__layer">
-              <Link href={'/'} class="">
+              <Link href={'/'} className="">
                 <span>OVER</span>
               </Link>
             </div>
           </li>
           <li className="list__layer">
             <div className="first__layer">
-              <Link href={'/'} class="">
+              <Link href={'/'} className="">
                 <span>PRICING</span>
               </Link>
             </div>
           </li>
           <li className="list__layer">
             <div className="first__layer">
-              <Link href={'/'} class="">
+              <Link href={'/'} className="">
                 <span>CONTACT</span>
               </Link>
             </div>
