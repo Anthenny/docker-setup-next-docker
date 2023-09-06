@@ -19,27 +19,27 @@ const page = () => {
             </div>
             <p className="schemaCard__button">Meer info</p>
 
-            <Image src={image1} alt="fooding shema food" fill sizes="100vw" />
+            <Image src={image1} alt="fooding shema food" fill sizes="width: 100vw" />
             <div />
           </div>
           <div className="schemaCard">
             <p className="schemaCard__header">VOEDINGS SCHEMA</p>
             <div className="schemaCard__icon">
-              <Image src={iconRestaurant} alt="logo" height={50} width={50} sizes="100vw" />
+              <Image src={iconRestaurant} alt="logo" height={50} width={50} sizes="width: 100vw" />
             </div>
             <p className="schemaCard__button">Meer info</p>
 
-            <Image src={image2} alt="fooding shema food" fill sizes="100vw" />
+            <Image src={image2} alt="fooding shema food" fill sizes="width: 100vw" />
             <div />
           </div>
           <div className="schemaCard">
             <p className="schemaCard__header">VOEDINGS SCHEMA</p>
             <div className="schemaCard__icon">
-              <Image src={iconRestaurant} alt="logo" height={50} width={50} sizes="100vw" />
+              <Image src={iconRestaurant} alt="logo" height={50} width={50} sizes="width: 100vw" />
             </div>
             <p className="schemaCard__button">Meer info</p>
 
-            <Image src={image3} alt="fooding shema food" fill sizes="100vw" />
+            <Image src={image3} alt="fooding shema food" fill sizes="width: 100vw" />
             <div />
           </div>
         </div>

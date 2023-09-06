@@ -33,6 +33,12 @@ const page = () => {
       setCart([...cart]);
     }
   };
+
+  const handelCompleteOrder = () => {
+    localStorage.removeItem('cart');
+    window.location.reload();
+  };
+
   return (
     <div className="right__col">
       <h3>Bestelling gegevens</h3>
@@ -63,7 +69,7 @@ const page = () => {
               <p>Totaal</p>
               <p>${totalPrice}</p>
             </div>
-            <p>Bestelling afronden</p>
+            <p onClick={handelCompleteOrder}>Bestelling afronden</p>
           </div>
         </div>
       ) : (

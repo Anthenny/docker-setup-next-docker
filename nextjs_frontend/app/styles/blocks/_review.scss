@@ -4,26 +4,37 @@
 
 .custom-controls {
   width: 100%;
-  display: flex;
+  position: relative;
+  top: 120px;
 
   li {
-    //position: absolute;
+    position: absolute;
     z-index: 5;
-    bottom: -90px;
     cursor: pointer;
     top: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%);
     list-style: none;
 
     &:first-child {
       left: 0;
-      right: unset;
     }
 
     &:last-child {
       right: 0;
       transform: rotate(180deg);
-      left: unset;
     }
+  }
+}
+
+.cReview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding-top: 70px;
+  & p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
   }
 }

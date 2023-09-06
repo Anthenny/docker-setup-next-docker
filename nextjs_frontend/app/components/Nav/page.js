@@ -1,6 +1,6 @@
 'use client';
 
-import {React, useState} from 'react';
+import { React, useState } from 'react';
 import Image from 'next/image';
 import Logo from '../../../public/logo.png';
 import Link from 'next/link';
@@ -11,7 +11,6 @@ const page = () => {
     const toggleMenu = () => {
         setMenuVisible((prevMenuVisible) => !prevMenuVisible);
     };
-
     return (
         <>
             <div className="menuwrapper2">
@@ -19,7 +18,7 @@ const page = () => {
                     <div className="container cTestNav">
                         <div className="navbarTest">
                             <Link href={'/'} className="left__col">
-                                <Image src={Logo} alt="Logo" height={80}/>
+                                <Image src={Logo} alt="Logo" height={80} />
                             </Link>
 
                             <ul className="right__col">
@@ -51,32 +50,32 @@ const page = () => {
                     </div>
                 </div>
             </div>
-            <div className={`mobile__menu-test ${menuVisible ? "__active" : ""}`}>
+            <div className={`mobile__menu-test ${menuVisible ? '__active' : ''}`}>
                 <ul>
                     <li className="list__layer">
                         <div className="first__layer">
-                            <Link href={'/'} class="">
+                            <Link href={'/'} className="">
                                 <span>HOME</span>
                             </Link>
                         </div>
                     </li>
                     <li className="list__layer">
                         <div className="first__layer">
-                            <Link href={'/'} class="">
+                            <Link href={'/'} className="">
                                 <span>OVER</span>
                             </Link>
                         </div>
                     </li>
                     <li className="list__layer">
                         <div className="first__layer">
-                            <Link href={'/'} class="">
+                            <Link href={'/'} className="">
                                 <span>PRICING</span>
                             </Link>
                         </div>
                     </li>
                     <li className="list__layer">
                         <div className="first__layer">
-                            <Link href={'/'} class="">
+                            <Link href={'/'} className="">
                                 <span>CONTACT</span>
                             </Link>
                         </div>
