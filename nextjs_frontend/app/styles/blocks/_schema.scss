@@ -1,5 +1,6 @@
 .fwSchema {
-  padding: 70px 16px;
+  padding-top: 70px;
+  padding-bottom: 80px;
 }
 
 .cSchemas {
@@ -13,10 +14,11 @@
   @media (min-width: 950px) {
     flex-direction: row;
   }
+
   &__header {
     font-size: 26px;
     color: #fff;
-    padding-bottom: 50px;
+    margin-bottom: 30px;
     text-transform: uppercase;
   }
 }

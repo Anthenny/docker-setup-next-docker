@@ -1,6 +1,7 @@
 import React from 'react';
 import textImage from '@/../../public/img/fitness.png';
 import Image from "next/image";
+import Link from "next/link";
 
 const page = () => {
     return (
@@ -29,9 +30,9 @@ const page = () => {
                         <li>HIIT</li>
                         <li>Kracht en conditie</li>
                     </ul>
-                    <div className="button">
-                        <p>CTA</p>
-                    </div>
+                    <Link href={'/paketten'} className="newButton">
+                        <span>SERVICES</span>
+                    </Link>
                 </div>
                 <div className="right__col">
                     <Image src={textImage} alt={"image"}/>

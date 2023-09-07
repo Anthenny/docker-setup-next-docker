@@ -21,3 +21,37 @@
 
   }
 }
+
+.newButton {
+  margin-top: 20px;
+  color: #fff;
+  background-color: $green;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  outline: 0;
+  font-size: 1.1rem;
+  padding: 12px 35px;
+  display: inline-block;
+  transform: skew(-21deg);
+  border: 1px solid $green;
+  width: fit-content;
+  transition: .1s ease-in;
+
+  > span {
+    display: inline-block;
+    font-size: 18px;
+    //color: black;
+    transform: skew(21deg);
+  }
+
+  &:hover {
+    background: transparent;
+    border: 1px solid $green;
+    transition: .1s ease-in;
+
+    > span {
+      color: black;
+    }
+  }
+}

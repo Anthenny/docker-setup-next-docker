@@ -16,11 +16,11 @@
     list-style: none;
 
     &:first-child {
-      left: 0;
+      left: -30px;
     }
 
     &:last-child {
-      right: 0;
+      right: -30px;
       transform: rotate(180deg);
     }
   }
@@ -33,6 +33,7 @@
   align-items: center;
   gap: 40px;
   padding-top: 70px;
+
   & p {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
