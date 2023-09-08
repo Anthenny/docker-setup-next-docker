@@ -22,6 +22,7 @@ const page = () => {
                   <Image src={instagramIcon} width={40} height={40} alt="icon instagram" />
                 </span>
                 <div className="darkBg" />
+                <div className="darkBg2" />
               </div>
             );
           })}

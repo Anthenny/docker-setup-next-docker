@@ -13,7 +13,7 @@
       height: 15px;
       width: 15px;
       background-color: $green;
-      opacity: .4;
+      opacity: 0.4;
       border: none;
       border-radius: 50%;
 
@@ -124,12 +124,12 @@
     }
   }
 
-  & > div {
+  & > .darkBg2 {
     display: none;
   }
 
   &:hover {
-    & > div,
+    & > .darkBg2,
     & > span {
       display: block;
       transition: all 0.3s ease-in-out;
