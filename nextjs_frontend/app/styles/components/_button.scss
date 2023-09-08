@@ -1,4 +1,6 @@
-.button {
+.button,
+button {
+  border: none;
   padding: 10px 20px;
   background-color: $green;
   width: 176px;
@@ -18,7 +20,6 @@
   &:hover {
     transition: all 0.3s ease-in;
     background-color: darken($green, 15%);
-
   }
 }
 
@@ -36,7 +37,7 @@
   transform: skew(-21deg);
   border: 1px solid $green;
   width: fit-content;
-  transition: .1s ease-in;
+  transition: 0.1s ease-in;
 
   > span {
     display: inline-block;
@@ -48,7 +49,7 @@
   &:hover {
     background: transparent;
     border: 1px solid $green;
-    transition: .1s ease-in;
+    transition: 0.1s ease-in;
 
     > span {
       color: black;
