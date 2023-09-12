@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import ReviewsSection from '../components/ReviewsSection/page';
 import InstagramSection from '../components/InstagramSection/page';
-import Image from 'next/image';
 import PricingCard from '../components/paketten/pricingCard/page';
+import SectionImgDiv from '../components/lib/SectionImgDiv/page';
 
 import paketSectionImg from '../../public/img/paketSectionImg.jpg';
 
@@ -68,14 +68,10 @@ const page = () => {
   ];
 
   return (
-    <div>
+    <>
       <div className="fullwidth fwpackagesSection">
-        <div className="imgDiv">
-          <div className="darkBg" />
-          <Image src={paketSectionImg} fill alt="fitness foto" />
-        </div>
+        <SectionImgDiv imgSrc={paketSectionImg} sectionTitel={'BEKIJK ONZE PAKETTEN'} />
         <div className="container CpackagesSection">
-          <h2>BEKIJK ONZE PAKETTEN</h2>
           <div className="top__col">
             <p>Kies jouw plan!</p>
             <div>
@@ -104,7 +100,7 @@ const page = () => {
 
       <ReviewsSection />
       <InstagramSection />
-    </div>
+    </>
   );
 };
 

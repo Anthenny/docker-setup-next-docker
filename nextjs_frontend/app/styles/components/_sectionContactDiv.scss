@@ -1,0 +1,53 @@
+.SectionContactDiv {
+  padding: 75px 20px;
+
+  @media (min-width: 1315px) {
+    padding: 75px 0px;
+  }
+
+  & > h2 {
+    font-size: 24px;
+    line-height: 1.57rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    padding-bottom: 20px;
+    @media (min-width: 900px) {
+      font-size: 30px;
+    }
+  }
+
+  & > p {
+    font-size: 16px;
+    line-height: 1.57rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding-bottom: 30px;
+    @media (min-width: 900px) {
+      font-size: 18px;
+    }
+  }
+}
+
+.inputDiv {
+  input,
+  textarea {
+    padding: 5px;
+    font-weight: 400;
+    border: none;
+    border-bottom: 1px solid $grayDark;
+    width: 100%;
+    color: #fff;
+    outline: none;
+    margin-bottom: 10px;
+    font-size: 16px;
+    &:focus {
+      border-bottom: 1px solid $green;
+    }
+    @media (min-width: 900px) {
+      font-size: 18px;
+    }
+  }
+  textarea {
+    margin-bottom: 30px;
+  }
+}

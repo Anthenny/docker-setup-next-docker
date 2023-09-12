@@ -6,7 +6,7 @@ import InstagramSection from './components/InstagramSection/page';
 
 export default function Home() {
   return (
-    <div>
+    <div style={{ minHeight: '100vh' }}>
       <Main />
       <SchemaSection />
       <TrainingSection />

@@ -1,25 +1,7 @@
 .fwpackagesSection {
-  .imgDiv {
-    position: relative;
-    height: 350px;
-    width: 100%;
-    img {
-      object-fit: cover;
-      z-index: 1;
-    }
-  }
   .CpackagesSection {
     padding: 0 16px 80px 16px;
     position: relative;
-    h2 {
-      position: absolute;
-      top: -80px;
-      left: 0;
-      color: #fff;
-      z-index: 100;
-      font-size: 38px;
-      font-weight: 300;
-    }
 
     .top__col {
       display: flex;
